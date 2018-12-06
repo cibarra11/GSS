@@ -1,6 +1,6 @@
 ---
 title: "Social Survey 2010"
-author: "Put your name here!"
+author: "Cindy Ibarra"
 date: "Fall 2018"
 output:
   html_document:
@@ -48,11 +48,29 @@ barchartGC(~race+condrift, data=alldata, type = "percent")
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+barchartGC(~race+cappun, data=alldata, type = "percent")
+```
+
+In these reults we see that black people have a higher percent of people opposing capital punishment while whites are more in favor than any other group. 
+```{r}
+tab1 =xtabs(~race+condrift, data=alldata)
+rowPerc(tab1)
+colPerc(tab1)
+```
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+```{r}
+chisqtestGC(tab1,graph=TRUE)
+```
+
+We reject the null hypothesis becaue the p value = 0. 
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+Based on the results provided by these tests I do not believe that views on capital punishment and race are independent. The results show that race and views are dependent on one another based on the numbers we see. Whites are more in favor and blacks are the group least in favor of capital punishment. 
